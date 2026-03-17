@@ -1,3 +1,6 @@
+Husk is a coffee brew assisting app that tracks past brews and bean data.
+Users can use this data for finding starting-points easier or to revisit old beans with confidence.
+
 ## Installation
 ```bash
 npm install
