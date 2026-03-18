@@ -6,7 +6,6 @@ import TabIcon from './TabIcon.vue'
 
 const tabs = <TabButton[]>[
 	{ icon: 'house', text: 'Dashboard', route: 'dashboard' },
-	{ icon: 'mug-saucer', text: 'Beans', route: 'beans' },
 	{ icon: 'gear', text: 'Gear', route: 'gear' },
 ]
 
@@ -39,7 +38,7 @@ footer {
 	margin: 24px;
 
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 
 	border-radius: 12px;
 	box-shadow: 0px 2px var(--brand-600);

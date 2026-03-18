@@ -2,16 +2,23 @@
 import PlusButton from './PlusButton.vue'
 import ProfileIcon from './ProfileIcon.vue'
 
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed } from 'vue'
 
 const route = useRoute()
+const router = useRouter()
 const isDisplayPage = computed(() => route.name === 'dashboard' || route.name === 'beans')
+
+function navigate(route: string) {
+	router.push({ name: route });
+}
+
+const activePage = computed(() => route.name?.toString().toLowerCase() ?? '')
 </script>
 
 <template>
 	<TransitionGroup name="slide" tag="header">
-		<PlusButton v-if="isDisplayPage" :key="1" />
+		<PlusButton v-if="isDisplayPage" :key="1" @navigate="navigate" route="beans" :active-route="activePage"/>
 		<img v-else src="@/assets/images/title-image.PNG" alt="" />
 		<h1 :key="2">Husk</h1>
 		<ProfileIcon :key="3" />

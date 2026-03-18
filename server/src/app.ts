@@ -17,6 +17,6 @@ app.use(
   }),
 );
 app.use(express.json());
-app.use('/api', testRoute)
+app.use('/api/test', testRoute)
 
 export default app;

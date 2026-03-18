@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue';
 
-const open = ref<boolean>(false)
+const props = defineProps<{
+	route: string
+	activeRoute: string
+}>()
+
+const emit = defineEmits<{
+	navigate: [route: string]
+}>()
+
+const isOnPage = computed(() => props.route === props.activeRoute)
 </script>
 
 <template>
 	<div class="wrapper">
-		<button @click="open = !open" class="main-button">
+		<button @click="emit('navigate', route)" class="main-button" :disabled="isOnPage">
 			<span>+</span>
 		</button>
 	</div>
