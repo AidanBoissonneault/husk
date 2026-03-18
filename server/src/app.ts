@@ -1,7 +1,22 @@
-import express from "express"
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import testRoute from './test/test.js'
 
-const app = express()
+const { CLIENT_PORT } = process.env;
 
-app.use(express.json())
+if (!CLIENT_PORT) {
+  throw new Error("Missing required client port variable");
+}
 
-export default app
+const app = express();
+
+app.use(
+  cors({
+    origin: `http://localhost:${CLIENT_PORT}`,
+  }),
+);
+app.use(express.json());
+app.use('/api', testRoute)
+
+export default app;

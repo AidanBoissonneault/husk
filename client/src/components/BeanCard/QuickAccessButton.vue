@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { fetchTest } from '@/api/test.ts';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
 	text: string
@@ -6,7 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-	<button>{{ text }}</button>
+	<button @click="fetchTest">{{ text }}</button>
 </template>
 
 <style scoped>
