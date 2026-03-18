@@ -8,33 +8,46 @@ USE husk;
 
 CREATE TABLE beans (
   id           INT AUTO_INCREMENT PRIMARY KEY,
+  user         INT NOT NULL DEFAULT 1,
   name         VARCHAR(100) NOT NULL,
   roaster      VARCHAR(100),
   origin       VARCHAR(100),
   variety      VARCHAR(100),
-  process      ENUM('natural', 'washed', 'honey', 'anaerobic', 'other'),
+  process      VARCHAR(100),
   elevation_m  INT,
   status       ENUM('fresh', 'frozen', 'finished') NOT NULL DEFAULT 'fresh',
   created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- One row per flavour note, linked to a bean
-CREATE TABLE flavour_notes (
+-- individual flavour note
+CREATE TABLE flavour_note (
   id       INT AUTO_INCREMENT PRIMARY KEY,
-  bean_id  INT NOT NULL,
   note     VARCHAR(50) NOT NULL,
-  FOREIGN KEY (bean_id) REFERENCES beans(id) ON DELETE CASCADE
+  category VARCHAR(50) NOT NULL,
+  hue      FLOAT NOT NULL -- hue (0 - 360)
 );
 
--- Generated OKLCH palette (2-3 swatches per bean)
+-- pallet per bean
 CREATE TABLE bean_palette (
-  id        INT AUTO_INCREMENT PRIMARY KEY,
-  bean_id   INT NOT NULL,
-  h         FLOAT NOT NULL,   -- hue (0-360)
-  c         FLOAT NOT NULL,   -- chroma (0-0.4)
-  l         FLOAT NOT NULL,   -- lightness (0-1)
-  position  TINYINT NOT NULL, -- 1, 2, or 3
-  FOREIGN KEY (bean_id) REFERENCES beans(id) ON DELETE CASCADE
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  bean_id    INT NOT NULL,
+  pri_note   INT NOT NULL,
+  sec_note   INT NOT NULL,
+  acc_note   INT NOT NULL,
+  FOREIGN KEY (bean_id) REFERENCES beans(id) ON DELETE CASCADE,
+  FOREIGN KEY (pri_note) REFERENCES flavour_note(id) ON DELETE CASCADE,
+  FOREIGN KEY (sec_note) REFERENCES flavour_note(id) ON DELETE CASCADE,
+  FOREIGN KEY (acc_note) REFERENCES flavour_note(id) ON DELETE CASCADE
+);
+
+-- ─────────────────────────────────────────
+--  CHROMA CATEGORIES
+-- ─────────────────────────────────────────
+
+CREATE TABLE chroma_category (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  name       VARCHAR(100) NOT NULL,
+  chroma     FLOAT NOT NULL
 );
 
 -- ─────────────────────────────────────────
