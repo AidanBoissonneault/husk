@@ -14,9 +14,11 @@ cd client && npm install
 npm run dev
 ```
 
+## ___________________
 ## Database Setup
+## ___________________
 
-This project uses MySQL. You will need MySQL 8.0+ installed and running locally.
+This project uses MySQL. You will need MySQL 8.0+ installed and running locally for this project.
 
 ### 1. Create the database and tables
 ```bash
@@ -36,12 +38,6 @@ so the app is usable immediately during development.
 Copy the example env file and fill in your credentials:
 ```bash
 cp .env.example .env
-```
-```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=husk
 ```
 
 ### Resetting the database

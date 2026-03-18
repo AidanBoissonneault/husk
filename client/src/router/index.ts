@@ -17,11 +17,13 @@ const router = createRouter({
 	],
 })
 
+// starts a loading screen when a new page is loading
 router.beforeEach(() => {
 	const loading = useLoadingStore()
 	loading.start()
 })
 
+// ends the loading screen when the new page is loaded
 router.afterEach(() => {
 	const loading = useLoadingStore()
 	loading.stop()
