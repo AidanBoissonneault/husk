@@ -7,7 +7,7 @@ import { computed } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
-const isDisplayPage = computed(() => route.name === 'dashboard' || route.name === 'beans')
+const isDisplayPage = computed(() => route.name === 'dashboard' || route.name === 'addbeans')
 
 function navigate(route: string) {
 	router.push({ name: route });
@@ -18,7 +18,7 @@ const activePage = computed(() => route.name?.toString().toLowerCase() ?? '')
 
 <template>
 	<TransitionGroup name="slide" tag="header">
-		<PlusButton v-if="isDisplayPage" :key="1" @navigate="navigate" route="beans" :active-route="activePage"/>
+		<PlusButton v-if="isDisplayPage" :key="1" @navigate="navigate" route="addbeans" :active-route="activePage"/>
 		<img v-else src="@/assets/images/title-image.PNG" alt="" />
 		<h1 :key="2">Husk</h1>
 		<ProfileIcon :key="3" />

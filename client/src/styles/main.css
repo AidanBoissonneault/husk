@@ -1,6 +1,8 @@
 :root {
 	--pico-font-base: 'Rubik', sans-serif;
 	--pico-font-headings: 'Rubik', sans-serif;
+
+	--border-radius: 12px;
 }
 
 :root:not([data-theme]),
@@ -29,6 +31,8 @@
 	--pico-primary-focus: var(--brand-400);
 	--pico-primary-inverse: var(--neutral-900);
 
+	--pico-color: var(--brand-300);
+
 	--pico-h1-color: var(--brand-300);
 	--pico-h2-color: var(--neutral-800);
 	--pico-h3-color: var(--neutral-800);
@@ -37,6 +41,14 @@
 	--pico-h5-color: var(--neutral-800);
 
 	--pico-typography-spacing-vertical: 0;
+
+	--pico-background-color: var(--neutral-800);
+	--pico-form-element-active-background-color: var(--neutral-800);
+	--pico-form-element-background-color: var(--neutral-900);
+	--pico-form-element-border-color: var(--neutral-900);
+	--pico-form-element-hover-border-color: var(--neutral-800);
+	--pico-form-element-active-border-color: var(--neutral-700);
+	--pico-form-element-color: var(--neutral-200);
 }
 
 body {

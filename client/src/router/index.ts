@@ -8,7 +8,7 @@ const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{ path: '/', name: 'dashboard', component: UserDashboard },
-		{ path: '/beans', name: 'beans', component: () => import('@/views/UserBeans.vue') },
+		{ path: '/addbeans', name: 'addbeans', component: () => import('@/views/UserAddBeans.vue') },
 		{ path: '/gear', name: 'gear', component: () => import('@/views/UserGear.vue') },
 		{ path: '/profile', name: 'profile', component: () => import('@/views/UserProfile.vue') },
 		{ path: '/about', name: 'about', component: () => import('@/views/UserAbout.vue') },

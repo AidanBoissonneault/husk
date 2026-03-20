@@ -45,12 +45,12 @@ INSERT INTO flavour_note (id, note, category, hue) VALUES
 --  BEANS
 -- ─────────────────────────────────────────
 
-INSERT INTO beans (id, user, name, roaster, origin, variety, process, elevation_m, status) VALUES
-  (1, 1, 'Kayon Mountain', 'Onyx Coffee',     'Ethiopia', 'Heirloom', 'Natural',  2200, 'fresh'),
-  (2, 1, 'Las Margaritas',  'Counter Culture', 'Colombia', 'Castillo', 'Washed',   1750, 'fresh'),
-  (3, 1, 'Kiambu AB',       'Blue Bottle',     'Kenya',    'SL28',     'Washed',   1900, 'fresh'),
-  (4, 1, 'La Palma',        'Onyx Coffee',     'Guatemala','Bourbon',  'Honey',    1600, 'frozen'),
-  (5, 1, 'Yirgacheffe G1',  'Intelligentsia',  'Ethiopia', 'Heirloom', 'Washed',   2100, 'finished');
+INSERT INTO beans (id, user, name, roaster, origin, variety, process, roast_level, elevation_m, status) VALUES
+  (1, 1, 'Kayon Mountain', 'Onyx Coffee',     'Ethiopia', 'Heirloom', 'Natural', 50, 2200, 'fresh'),
+  (2, 1, 'Las Margaritas',  'Counter Culture', 'Colombia', 'Castillo', 'Washed', 42, 1750, 'fresh'),
+  (3, 1, 'Kiambu AB',       'Blue Bottle',     'Kenya',    'SL28',     'Washed', 73, 1900, 'fresh'),
+  (4, 1, 'La Palma',        'Onyx Coffee',     'Guatemala','Bourbon',  'Honey',  10, 1600, 'frozen'),
+  (5, 1, 'Yirgacheffe G1',  'Intelligentsia',  'Ethiopia', 'Heirloom', 'Washed', 20, 2100, 'finished');
 
 -- ─────────────────────────────────────────
 --  BEAN PALETTES
@@ -85,7 +85,7 @@ INSERT INTO recipes (id, name, brew_method) VALUES
   (3, 'Aeropress Inverted', 'aeropress');
 
 INSERT INTO recipe_steps (recipe_id, step_order, action, duration_seconds) VALUES
-  (1, 1, 'Bloom: pour 50g water',               45),
+  (1, 1, 'Bloom: pour 50g water',                45),
   (1, 2, 'First pour: add 100g (total 150g)',    45),
   (1, 3, 'Second pour: add 100g (total 250g)',   45),
   (1, 4, 'Third pour: add 100g (total 350g)',    45),
