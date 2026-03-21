@@ -7,7 +7,7 @@ import { computed } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
-const isDisplayPage = computed(() => route.name === 'dashboard' || route.name === 'addbeans')
+const isDisplayPage = computed(() => route.name === 'dashboard' || route.name === 'gear' || route.name === 'profile')
 
 function navigate(route: string) {
 	router.push({ name: route });

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import BeanForm from '@/components/BeanForm/BeanForm.vue';
+import type { AddBeanForm } from '@/types';
+import { ref } from 'vue';
 
-
+const bean = ref<AddBeanForm>()
 </script>
 
 <template>
 	<div class="dashboard">
-		<BeanForm />
+		<BeanForm v-model="bean"/>
 	</div>
 </template>
 
