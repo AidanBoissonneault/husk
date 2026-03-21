@@ -2,13 +2,22 @@
 import BeanForm from '@/components/BeanForm/BeanForm.vue';
 import type { AddBeanForm } from '@/types';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+// receives bean
 const bean = ref<AddBeanForm>()
+
+const router = useRouter()
+
+function getFormSubmit() {
+	console.log(bean.value)
+	router.push({ name: "dashboard" })
+}
 </script>
 
 <template>
 	<div class="dashboard">
-		<BeanForm v-model="bean"/>
+		<BeanForm v-model="bean" @form-submitted="getFormSubmit"/>
 	</div>
 </template>
 

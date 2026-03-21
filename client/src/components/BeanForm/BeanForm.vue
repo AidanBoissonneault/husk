@@ -5,16 +5,21 @@ import { watch, ref } from 'vue'
 // support v-model
 const modelValue = defineModel<AddBeanForm>({
 	default: {
-		name: "",
+		name: undefined,
 		roaster: undefined,
 		origin: undefined,
 		variety: undefined,
 		process: undefined,
-		roastLevel: undefined,
+		roastLevel: 50,
 		state: "fresh",
 		flavourNotes: undefined,
 	}
 })
+
+const emits = defineEmits<{
+	formSubmitted: []
+}>()
+
 
 // clone the modelValue to local data
 // and provide a fallback user if none provided
@@ -23,6 +28,7 @@ const form = ref(clone(modelValue.value))
 // only update the modelValue when the form is submitted
 function handleSubmit() {
 	modelValue.value = clone(form.value)
+	emits('formSubmitted')
 }
 
 // reset form when prop changes
@@ -82,7 +88,7 @@ function clone(obj: AddBeanForm) {
 			<input type="text" v-model="form.flavourNotes">
 		</label>
 
-		<button>Submit</button>
+		<button :disabled="! !!form.name.trim()">Submit</button>
 	</form>
 </template>
 
