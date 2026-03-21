@@ -1,4 +1,22 @@
 // ─────────────────────────────────────────
+//  Bean Type
+// ─────────────────────────────────────────
+export interface Bean extends AddBeanForm {
+	pri_note_hue?: number
+	pri_note_chroma?: number
+	sec_note_hue?: number
+	sec_note_chroma?: number
+	acc_note_hue?: number
+	acc_note_chroma?: number
+}
+
+// ─────────────────────────────────────────
+//  Bean State
+// ─────────────────────────────────────────
+
+type BeanState = "fresh" | "frozen" | "finished"
+
+// ─────────────────────────────────────────
 //  Bean Submit Form
 // ─────────────────────────────────────────
 export interface AddBeanForm {
@@ -7,21 +25,20 @@ export interface AddBeanForm {
 	origin?: string
 	variety?: string
 	process?: string
-	roastLevel?: number
+	elevation_m?: number
+	roast_level?: number
 	state: BeanState
-	flavourNotes?: string
+	flavour_summary?: string
 }
-
-type BeanState = "fresh" | "frozen" | "finished"
 
 // ─────────────────────────────────────────
 //  API sending type
 // ─────────────────────────────────────────
 
-export type CheckedJSON =
+export type CheckedJSON<T> =
   | {
 		success: true
-		payload: JSON[]
+		payload: T
 	} | {
 		success: false
 		error: string

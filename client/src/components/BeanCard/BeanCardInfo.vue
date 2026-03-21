@@ -1,21 +1,19 @@
 <script setup lang="ts">
+import type { Bean } from '@/types';
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
-	name: string
-	variety: string
-	origin: string
-	maslRange: string
-	flavorProfile: string
+	bean: Bean
 }>()
 </script>
 
 <template>
 	<div>
-		<h2>{{ name }}</h2>
+		<h2>{{ bean.name }}</h2>
 		<p>
-			{{ variety }} <br />
-			{{ origin }}, {{ maslRange }} MASL <br />
-			{{ flavorProfile }}
+			{{ bean.variety }}<span v-if="!!bean.process">, {{ bean.process }}</span> <br />
+			{{ bean.origin }}<span v-if="!!bean.elevation_m">, {{ bean.elevation_m }} MASL</span> <br />
+			{{ bean.flavour_summary }}
 		</p>
 	</div>
 </template>

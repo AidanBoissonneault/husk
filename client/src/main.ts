@@ -6,6 +6,7 @@ import router from './router'
 
 import '@picocss/pico/css/pico.min.css'
 import '@/tokens/colors.css'
+import '@/tokens/lightness.css'
 import '@/styles/main.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'

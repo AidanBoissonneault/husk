@@ -42,7 +42,7 @@ onMounted(async () => {
   <div class="dashboard">
     <div v-if="error">{{ error }}</div>
 
-    <template v-else>
+    <template v-else-if="heroBean">
       <HeroBeanCard :bean="heroBean" />
       <SectionSeperator />
       <div class="filter-wrapper">
