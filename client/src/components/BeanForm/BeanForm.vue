@@ -17,7 +17,7 @@ const modelValue = defineModel<AddBeanForm>({
 })
 
 const emits = defineEmits<{
-	formSubmitted: []
+	formSubmitted: [ void ]
 }>()
 
 
